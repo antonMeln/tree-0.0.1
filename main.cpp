@@ -1,3 +1,10 @@
+// ConsoleApplication17.cpp: определяет точку входа для консольного приложения.
+//
+
+#include "stdafx.h"
+
+
+#include "stdafx.h"
 #include <iostream>
 
 using namespace std;
@@ -62,7 +69,7 @@ public:
                 root -> left = new node_t;
                 root -> left -> key = key;
             }
-            if (root -> key < key) {
+			else if (root -> key < key) {
                 root -> right = new node_t;
                 root -> right -> key = key;
             }
@@ -73,13 +80,13 @@ public:
 
     bool find( int key) const {
 
-        if (root == nullptr) {
-            return false;
-        } else {
+        if (root == nullptr) return false;
+            
+         else {
             node_t *temp = root;
 
             while (temp != nullptr) {
-                if (root->key == key) return true;
+                if (temp->key == key) return true;
                 else if (temp->key > key) temp = temp->left;
                 else if (temp->key < key) temp = temp->right;
             }
